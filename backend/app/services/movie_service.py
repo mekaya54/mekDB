@@ -1,9 +1,3 @@
-"""
-Movie service: wraps DB access and returns normalized dicts for the API.
-
-This implementation uses the existing `backend/app/db/connection.py` to
-obtain a MySQL connection and the SQL in `app/db/queries.py`.
-"""
 from typing import List, Dict, Any, Optional
 from backend.app.db.connection import get_db_connection
 from backend.app.db import queries
@@ -11,10 +5,7 @@ from backend.app.config.settings import DEFAULT_LIMIT, TYPE_GROUPS
 
 
 def _row_to_dict(row: Dict[str, Any]) -> Dict[str, Any]:
-    # If row is a tuple, the cursor should be configured to return dicts;
-    # this function tolerates both for safety.
     if not isinstance(row, dict):
-        # best-effort conversion
         return dict(row)
 
     return {
@@ -44,7 +35,6 @@ def search_movies(search: str = "", type_filter: str = "all", limit: int = DEFAU
             sql += " AND p.primary_title LIKE %s"
             params.append(f"%{search}%")
 
-        # map group filter
         tf = type_filter.lower()
         if tf in TYPE_GROUPS:
             allowed = TYPE_GROUPS[tf]
