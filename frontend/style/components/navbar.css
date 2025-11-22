@@ -1,25 +1,100 @@
 header {
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
     background-color: var(--header-bg);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
+    height: 72px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    width: 100%;
 }
 
 .navbar-inner {
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 30px;
+    height: 100%;
+}
+
+.navbar-left {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
 }
 
 .logo-text {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 800;
-    letter-spacing: -1px;
-    color: var(--text-main);
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 .logo-text span {
     color: var(--accent-color);
+    margin-left: 2px;
+}
+
+.navbar-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+}
+
+#search-bar-wrapper {
+    width: 100%;
+    max-width: 500px;
+}
+
+.navbar-right {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar-right .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.navbar-right .btn-login {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.navbar-right .btn-login:hover {
+    color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.navbar-right .btn-signup {
+    background-color: var(--accent-color);
+    color: #000000;
+    border: none;
+    font-weight: 700;
+}
+
+.navbar-right .btn-signup:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
 }
