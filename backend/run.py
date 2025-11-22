@@ -13,7 +13,7 @@ MOCK_MOVIES = [
         "primary_title": "The Matrix",
         "start_year": 1999,
         "runtime_minutes": 136,
-        "poster_url": "http://image.tmdb.org/t/p/original/2lECpi35Hnbpa4y46JX0aY3AWTy.jpg",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
         "average_rating": 8.7,
         "num_votes": 1700000,
         "type": "movie",
@@ -24,7 +24,7 @@ MOCK_MOVIES = [
         "primary_title": "Breaking Bad",
         "start_year": 2008,
         "runtime_minutes": 49,
-        "poster_url": "https://image.tmdb.org/t/p/original/5kAGbi9MFAobQTVfK4kWPnIfnP0.jpg",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_SX300.jpg",
         "average_rating": 9.5,
         "num_votes": 2000000,
         "type": "tvSeries",
@@ -35,7 +35,7 @@ MOCK_MOVIES = [
         "primary_title": "Chernobyl",
         "start_year": 2019,
         "runtime_minutes": 60,
-        "poster_url": "https://image.tmdb.org/t/p/original//hTP1DtLGFamjfu8WqjnuQdP1n4i.jpg",
+        "poster_url": "https://upload.wikimedia.org/wikipedia/en/a/a7/Chernobyl_2019_Miniseries.jpg",
         "average_rating": 9.4,
         "num_votes": 800000,
         "type": "tvMiniSeries",
@@ -46,7 +46,7 @@ MOCK_MOVIES = [
         "primary_title": "Avengers: Endgame",
         "start_year": 2019,
         "runtime_minutes": 181,
-        "poster_url": "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg",
         "average_rating": 8.4,
         "num_votes": 1200000,
         "type": "movie",
@@ -57,7 +57,7 @@ MOCK_MOVIES = [
         "primary_title": "Game of Thrones",
         "start_year": 2011,
         "runtime_minutes": 57,
-        "poster_url": "https://image.tmdb.org/t/p/w1280/gwPSoYUHAKmdyVywgLpKKA4BjRr.jpg",
+        "poster_url": "https://cdn.europosters.eu/image/750webp/160751.webp",
         "average_rating": 9.2,
         "num_votes": 2200000,
         "type": "tvSeries",
@@ -167,7 +167,32 @@ def login():
         "token": "mock-token-123",
         "user": {"username": email.split('@')[0], "email": email}
     })
+    
+@app.route("/api/profile/me", methods=['GET'])
+def get_profile_me():
+    email = request.args.get("email") or "user@example.com"
+    return jsonify({
+        "username": "mehmet",
+        "email": email,
+        "member_since": "2025",
+        "stats": {
+            "total_ratings": 42,
+            "reviews": 15
+        }
+    })
 
+@app.route("/api/profile/ratings", methods=['GET'])
+def get_profile_ratings():
+    # Kullanıcının oyladığı filmleri simüle edelim
+    # MOCK_MOVIES listesinden rastgele 3 tanesini döndürelim
+    import random
+    rated_movies = random.sample(MOCK_MOVIES, min(len(MOCK_MOVIES), 3))
+    
+    # Her birine sahte 'user_rating' ekleyelim
+    for m in rated_movies:
+        m["user_rating"] = random.randint(7, 10)
+        
+    return jsonify(rated_movies)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

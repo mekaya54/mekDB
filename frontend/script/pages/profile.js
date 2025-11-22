@@ -16,38 +16,48 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const usernameEl = document.getElementById("profile-username");
     const emailEl = document.getElementById("profile-email");
+    const initialEl = document.getElementById("profile-initial");
+    const statCountEl = document.getElementById("stat-count");
+    const statYearEl = document.getElementById("stat-year");
     const ratingsContainer = document.getElementById("profile-ratings");
 
     try {
-        const profile = await fetchProfile();
-        if (profile) {
-            if (usernameEl && profile.username) usernameEl.textContent = profile.username;
-            if (emailEl && profile.email) emailEl.textContent = profile.email;
+        const user = await fetchProfile();
+        if (user) {
+            if (usernameEl) usernameEl.textContent = user.username || "User";
+            if (emailEl) emailEl.textContent = user.email || "";
+            
+            if (initialEl && user.username) {
+                initialEl.textContent = user.username.charAt(0).toUpperCase();
+            }
+
+            if (statYearEl) statYearEl.textContent = user.member_since || new Date().getFullYear();
+            if (statCountEl && user.stats) {
+                statCountEl.textContent = user.stats.total_ratings || 0;
+            }
         }
-    } catch {}
+    } catch (e) {
+        console.error("Profile load error", e);
+    }
 
     if (!ratingsContainer) return;
-
-    ratingsContainer.innerHTML = "Loading...";
+    ratingsContainer.innerHTML = "<p style='color:#888'>Loading ratings...</p>";
 
     try {
         const ratings = await fetchMyRatings();
         ratingsContainer.innerHTML = "";
 
         if (!ratings || ratings.length === 0) {
-            ratingsContainer.textContent = "You have not rated any titles yet.";
+            ratingsContainer.innerHTML = "<p style='color:#888; grid-column:1/-1;'>You haven't rated any titles yet.</p>";
             return;
         }
 
         ratings.forEach((item) => {
             const movieData = { ...item };
-            if (item.user_rating && !item.average_rating) {
-                movieData.average_rating = item.user_rating;
-            }
             const card = createMovieCard(movieData);
             ratingsContainer.appendChild(card);
         });
     } catch (err) {
-        ratingsContainer.textContent = err.message || "Ratings could not be loaded.";
+        ratingsContainer.innerHTML = `<p style='color:var(--accent-color)'>Failed to load ratings: ${err.message}</p>`;
     }
 });
