@@ -81,14 +81,14 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 30px; 
     padding: 30px 40px; 
-    max-width: 1400px; 
+    max-width: var(--max-width); 
     margin: 0 auto;
 }
 
 .movie-hero {
     display: flex;
     gap: 40px;
-    max-width: 1200px;
+    max-width: var(--max-width);
     margin: 40px auto;
     padding: 0 40px;
     align-items: flex-start;
@@ -158,11 +158,11 @@ body {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #ddd;
-    max-width: 800px;
+    max-width: var(--max-width);
 }
 
 .movie-section {
-    max-width: 1200px;
+    max-width: var(--max-width);
     margin: 50px auto;
     padding: 0 40px;
 }
@@ -199,7 +199,7 @@ body {
     display: flex;
     align-items: center;
     gap: 30px;
-    max-width: 1000px;
+    max-width: var(--max-width);
     margin: 50px auto;
     padding: 0 40px;
 }
@@ -258,4 +258,228 @@ body {
 .filmography-row:hover {
     background: #222;
     border-color: #444;
+}
+
+.movie-hero {
+    position: relative;
+    display: flex;
+    gap: 50px;
+    padding: 60px 80px;
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    min-height: 600px;
+    align-items: center;
+    box-shadow: inset 0 -100px 100px var(--bg-color);
+}
+
+@media (max-width: 900px) {
+    .movie-hero {
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    .movie-hero-left {
+        flex: 0 0 auto;
+        width: 200px;
+    }
+}
+
+.movie-hero-left {
+    flex: 0 0 350px;
+    z-index: 2;
+}
+
+.movie-poster-lg {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.movie-hero-right {
+    flex: 1;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+.movie-detail-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 5px;
+}
+
+.movie-submeta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+
+.meta-tag {
+    border: 1px solid #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.movie-genres {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.genre-tag {
+    background-color: var(--accent-color);
+    color: #000;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.movie-overview {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #ddd;
+    max-width: var(--max-width);
+    margin-top: 10px;
+}
+
+.user-rating-box {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 20px;
+    border-radius: 12px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.rating-star-ui {
+    font-size: 1.8rem;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.rating-star-ui.active {
+    color: var(--accent-color);
+}
+
+.rating-star-ui:hover {
+    transform: scale(1.2);
+}
+
+.movie-section {
+    max-width: var(--max-width);
+    margin: 40px auto;
+    padding: 0 40px;
+}
+
+.movie-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--text-main);
+    border-left: 5px solid var(--accent-color);
+    padding-left: 15px;
+}
+
+.person-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.person-card {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.person-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    background-color: #222;
+}
+
+.person-avatar-small {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.person-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.person-name {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.person-role {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.rating-display-big {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.rating-star-icon {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+}
+
+.rating-value {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+}
+
+.rating-max {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+}
+
+.rating-votes {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-top: 5px;
 }
