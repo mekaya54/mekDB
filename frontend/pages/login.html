@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login • ByteSizedDB</title>
     <link rel="stylesheet" href="../style/global.css">
-    <link rel="stylesheet" href="../style/auth.css">
 </head>
 <body>
 
-    <script type="module" src="../script/pages/login.js"></script>
     <header></header>
 
     <main class="page auth-page">
@@ -26,19 +24,25 @@
                     <input type="password" id="login-password" required>
                 </label>
 
-                <button type="submit" class="btn btn-signup" style="width:100%; margin-top:10px;">
+                <label class="remember-me-container">
+                    <input type="checkbox" id="remember-me">
+                    Remember me
+                </label>
+
+                <button type="submit" class="btn btn-signup" style="width:100%;">
                     Login
                 </button>
             </form>
 
             <p class="auth-switch">
                 Don’t have an account?
-                <a href="signup.html">Sign up</a>
+                <a href="signup.html">Sign Up</a>
             </p>
 
             <div id="login-error" class="auth-error"></div>
         </div>
     </main>
 
+    <script type="module" src="../script/pages/login.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-import { initNavbar } from "../navbar.js";
+import { initNavbar } from "../components/navbar.js";
 import { fetchProfile } from "../api/auth.api.js";
 import { fetchMyRatings } from "../api/profile.api.js";
 import { createMovieCard } from "../components/movieCard.js";

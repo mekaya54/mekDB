@@ -1,4 +1,4 @@
-import { initNavbar } from "../navbar.js";
+import { initNavbar } from "../components/navbar.js";
 import { signup } from "../api/auth.api.js";
 import { goTo } from "../utils/router.js";
 

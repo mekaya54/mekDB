@@ -1,9 +1,9 @@
-import { initNavbar } from "../navbar.js";
+import { initNavbar } from "../components/navbar.js";
 import { login } from "../api/auth.api.js";
 import { goTo } from "../utils/router.js";
 
+initNavbar();
 document.addEventListener("DOMContentLoaded", () => {
-    initNavbar();
 
     const form = document.getElementById("login-form");
     const emailInput = document.getElementById("login-email");
