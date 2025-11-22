@@ -10,26 +10,31 @@
 
     <header></header>
 
-    <main class="page movie-detail-page">
-        <section class="movie-hero" id="movie-hero">
-            <div class="movie-hero-left">
-                <img id="movie-poster" class="movie-poster-lg" src="" alt="Poster">
-            </div>
-            <div class="movie-hero-right">
-                <h1 id="movie-title" class="movie-detail-title">Title</h1>
-                <div id="movie-submeta" class="movie-submeta"></div>
-                <div id="movie-genres" class="movie-genres"></div>
-
-                <div class="user-rating-box">
-                    <div class="user-rating-label">Your Rating</div>
-                    <div id="user-rating-stars" class="user-rating-stars"></div>
-                    <div id="user-rating-hint" class="user-rating-hint"></div>
+    <main class="page">
+        <section id="movie-hero" class="movie-hero">
+            <div class="movie-hero-content">
+                <div class="movie-hero-left">
+                    <img id="movie-poster" class="movie-poster-lg" alt="Movie Poster">
                 </div>
 
-                <p id="movie-overview" class="movie-overview"></p>
+                <div class="movie-hero-right">
+                    <h1 id="movie-title" class="movie-detail-title">Loading...</h1>
+                    <div id="movie-submeta" class="movie-submeta"></div>
+                    <div id="movie-genres" class="movie-genres"></div>
+                    
+                    <div id="movie-ratings" class="movie-ratings-box"></div>
+
+                    <div class="user-rating-box">
+                        <span class="user-rating-label">YOUR RATING</span>
+                        <div id="user-rating-stars" class="user-rating-stars"></div>
+                        <span id="user-rating-hint" class="user-rating-hint"></span>
+                    </div>
+
+                    <p id="movie-overview" class="movie-overview"></p>
+                </div>
             </div>
         </section>
-
+        
         <section class="movie-section">
             <h2>Top Cast</h2>
             <div id="movie-cast" class="person-list"></div>
@@ -40,10 +45,7 @@
             <div id="movie-crew" class="person-list"></div>
         </section>
 
-        <section class="movie-section" id="movie-ratings-section">
-            <h2>Ratings & Votes</h2>
-            <div id="movie-ratings" class="ratings-info"></div>
-        </section>
+
     </main>
 
     <script type="module" src="../script/pages/movie.js"></script>
