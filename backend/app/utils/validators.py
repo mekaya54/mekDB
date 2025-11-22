@@ -1,9 +1,3 @@
-"""
-Common input validators used by routes/services.
-
-This module provides tiny, well-documented helpers suitable for
-development. Replace or extend as project needs grow.
-"""
 import re
 from typing import Tuple
 

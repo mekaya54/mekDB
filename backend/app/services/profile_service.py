@@ -1,8 +1,3 @@
-"""
-Profile service: provide lightweight profile and history retrieval.
-
-This mirrors the logic in the profile route but is factored out for reuse.
-"""
 from typing import Dict, Any, List
 from backend.app.db.connection import get_db_connection
 

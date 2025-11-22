@@ -1,10 +1,3 @@
-"""
-Simple auth routes (mocked for local development).
-
-This module intentionally implements lightweight login/signup behavior
-without persistence. It is meant for development and frontend integration
-tests. Replace with real auth in production.
-"""
 from flask import Blueprint, request, jsonify
 
 bp = Blueprint("auth", __name__, url_prefix="/api")
@@ -18,7 +11,6 @@ def login():
 	if not email or not password:
 		return jsonify({"error": "email and password required"}), 400
 
-	# Mock authentication: accept any credentials and return a user object
 	user = {
 		"username": email.split("@")[0],
 		"email": email,
@@ -36,7 +28,6 @@ def signup():
 	if not email or not password:
 		return jsonify({"error": "email and password required"}), 400
 
-	# Mock signup: simply echo the created user
 	user = {
 		"username": email.split("@")[0],
 		"email": email,

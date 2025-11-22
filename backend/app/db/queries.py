@@ -1,11 +1,3 @@
-"""
-Simple SQL query helpers used by the movie service.
-
-These are minimal helper functions/constants that return SQL strings and
-parameters. They intentionally keep SQL centralized so tests and services
-can reuse them.
-"""
-
 GET_MOVIES_BASE = """
 SELECT
     p.production_id,

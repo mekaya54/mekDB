@@ -1,10 +1,3 @@
-"""
-People routes: search and detail endpoints.
-
-These endpoints use simple SQL to fetch people information. If the DB is
-not available, endpoints return empty lists or 404s to allow frontend
-to work with fallback behavior.
-"""
 from flask import Blueprint, request, jsonify
 from backend.app.db.connection import get_db_connection
 

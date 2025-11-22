@@ -1,10 +1,3 @@
-"""
-Database seeding helpers.
-
-This script provides a programmatic way to execute SQL files found in
-the repository `database/table_creation` folder. It is intentionally
-minimal and intended for local development only.
-"""
 import os
 from glob import glob
 from backend.app.db.connection import get_db_connection
@@ -35,7 +28,6 @@ def apply_all_sql(folder: str = None):
 			try:
 				cursor.execute(sql)
 			except Exception as e:
-				# If file contains multiple statements, try executing via executescript-like loop
 				statements = [s.strip() for s in sql.split(";") if s.strip()]
 				for stmt in statements:
 					try:

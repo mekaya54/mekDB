@@ -1,8 +1,3 @@
-"""
-Person service helpers.
-
-Provides basic person search and retrieval using the DB connection.
-"""
 from typing import List, Dict, Any, Optional
 from backend.app.db.connection import get_db_connection
 

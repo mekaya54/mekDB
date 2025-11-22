@@ -1,9 +1,3 @@
-"""
-Utilities related to database schema management.
-
-This module provides helpers to load the SQL schema file(s) and return
-their contents for other scripts or CLIs to execute.
-"""
 import os
 from glob import glob
 

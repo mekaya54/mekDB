@@ -1,8 +1,3 @@
-"""
-Small helpers to standardize API JSON responses.
-
-Use `ok()` for successful responses and `error()` for failures.
-"""
 from flask import jsonify
 from typing import Any, Dict
 
