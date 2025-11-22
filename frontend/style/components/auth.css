@@ -1,0 +1,41 @@
+/* Tarayıcı autocomplete ikonunu gizle */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px var(--input-bg) inset !important;
+    -webkit-text-fill-color: var(--text-main) !important;
+    background-image: none !important;
+    background-color: var(--input-bg) !important;
+}
+
+/* Chrome ve diğer tarayıcılar için autocomplete ikonunu gizle */
+input[type="email"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Firefox için */
+input:-moz-autofill {
+    background-image: none !important;
+}
+
+/* Genel input stilleri */
+.auth-card input {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 12px 16px;
+    color: var(--text-main);
+    font-size: 15px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.auth-card input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-image: none !important;
+}

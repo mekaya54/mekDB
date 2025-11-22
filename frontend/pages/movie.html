@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title • ByteSizedDB</title>
+    <link rel="stylesheet" href="../style/global.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-section">
+            <a href="../pages/index.html" style="text-decoration:none; color:inherit;">
+                <h1>ByteSized<span>DB</span></h1>
+            </a>
+        </div>
+
+        <div class="search-section">
+            <div id="search-bar-wrapper"></div>
+        </div>
+
+        <div class="controls-section">
+            <div class="auth-btns">
+                <a href="login.html"><button class="btn btn-login">Login</button></a>
+                <a href="signup.html"><button class="btn btn-signup">Sign Up</button></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page movie-detail-page">
+        <section class="movie-hero" id="movie-hero">
+            <div class="movie-hero-left">
+                <img id="movie-poster" class="movie-poster-lg" src="" alt="Poster">
+            </div>
+            <div class="movie-hero-right">
+                <h1 id="movie-title" class="movie-detail-title">Title</h1>
+                <div id="movie-submeta" class="movie-submeta"></div>
+                <div id="movie-genres" class="movie-genres"></div>
+
+                <div class="user-rating-box">
+                    <div class="user-rating-label">Your Rating</div>
+                    <div id="user-rating-stars" class="user-rating-stars"></div>
+                    <div id="user-rating-hint" class="user-rating-hint"></div>
+                </div>
+
+                <p id="movie-overview" class="movie-overview"></p>
+            </div>
+        </section>
+
+        <section class="movie-section">
+            <h2>Top Cast</h2>
+            <div id="movie-cast" class="person-list"></div>
+        </section>
+
+        <section class="movie-section">
+            <h2>Crew</h2>
+            <div id="movie-crew" class="person-list"></div>
+        </section>
+
+        <section class="movie-section" id="movie-ratings-section">
+            <h2>Ratings & Votes</h2>
+            <div id="movie-ratings" class="ratings-info"></div>
+        </section>
+    </main>
+
+    <script type="module" src="../script/pages/movie.js"></script>
+</body>
+</html>

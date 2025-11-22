@@ -1,0 +1,161 @@
+BLG317/
+├── backend/
+│   │
+│   ├── app/
+│   │   ├── config/
+│   │   │   └── settings.py
+│   │   │
+│   │   ├── db/
+│   │   │   ├── connection.py       # DB bağlantısı
+│   │   │   ├── schema.py           # Tüm CREATE TABLE scriptleri
+│   │   │   ├── seed.py             # Mock/Dummy verilerin INSERT işlemleri
+│   │   │   └── queries.py          # Select / Insert / Update sorguları
+│   │   │
+│   │   ├── routes/
+│   │   │   ├── auth.py
+│   │   │   ├── movies.py
+│   │   │   ├── people.py
+│   │   │   └── profile.py
+│   │   │
+│   │   ├── services/
+│   │   │   ├── auth_service.py
+│   │   │   ├── movie_service.py
+│   │   │   ├── person_service.py
+│   │   │   └── profile_service.py
+│   │   │
+│   │   └── utils/
+│   │       ├── response.py
+│   │       ├── validators.py
+│   │       └── db.py
+│   │
+│   ├── data/
+│   │   ├── mock_movies.json
+│   │   ├── mock_people.json
+│   │   ├── mock_crew.json
+│   │   └── mock_ratings.json
+│   │
+│   ├── run.py                # Flask start
+│   ├
+│   └── .env
+├── database/
+│   ├── schema/
+│   │   └── database_schema.png
+│   │
+│   └── table_creation/
+│       ├── table_alt_titles.sql
+│       ├── table_award_categories.sql
+│       ├── table_award_ceremonies.sql
+│       ├── table_award_nominees.sql
+│       ├── table_awards.sql
+│       ├── table_cast_members.sql
+│       ├── table_categories.sql
+│       ├── table_directors.sql
+│       ├── table_episodes.sql
+│       ├── table_genres.sql
+│       ├── table_jobs.sql
+│       ├── table_language.sql
+│       ├── table_people.sql
+│       ├── table_person_professions.sql
+│       ├── table_production_genres.sql
+│       ├── table_productions.sql
+│       ├── table_professions.sql
+│       ├── table_ratings.sql
+│       ├── table_regions.sql
+│       ├── table_title_types.sql
+│       └── table_writers.sql
+│   
+│
+├── frontend/
+│   ├── pages/
+│   │   ├── index.html
+│   │   ├── login.html
+│   │   ├── movie.html
+│   │   ├── notfound.html
+│   │   ├── person.html
+│   │   ├── profile.html
+│   │   └── signup.html
+│   │
+│   ├── script/
+│   │   ├── config.js
+│   │   │
+│   │   ├── api/
+│   │   │   ├── auth.api.js
+│   │   │   ├── movies.api.js
+│   │   │   ├── people.api.js
+│   │   │   └── profile.api.js
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── index.js
+│   │   │   ├── login.js
+│   │   │   ├── movie.js
+│   │   │   ├── person.js
+│   │   │   ├── profile.js
+│   │   │   └── signup.js
+│   │   │
+│   │   └── utils/
+│   │       ├── dom.js
+│   │       ├── router.js
+│   │       └── storage.js
+│   │
+│   └── style/
+│       ├── auth.css
+│       ├── global.css
+│       ├── layout.css
+│       ├── movie.css
+│       ├── person.css
+│       ├── profile.css
+│       │
+│       └── components/
+│           ├── buttons.css
+│           ├── card.css
+│           ├── navbar.css
+│           └── rating.css
+│── .gitignore
+└── README.md
+
+frontend/
+│
+├── pages/
+│   ├── index.html
+│   ├── login.html
+│   ├── movie.html
+│   ├── notfound.html
+│   ├── person.html
+│   ├── profile.html
+│   └── signup.html
+│
+├── script/
+│   ├── config.js
+│   │
+│   ├── api/
+│   │   ├── auth.api.js
+│   │   ├── movies.api.js
+│   │   ├── people.api.js
+│   │   └── profile.api.js
+│   │
+│   ├── pages/
+│   │   ├── index.js
+│   │   ├── login.js
+│   │   ├── movie.js
+│   │   ├── person.js
+│   │   ├── profile.js
+│   │   └── signup.js
+│   │
+│   └── utils/
+│       ├── dom.js
+│       ├── router.js
+│       └── storage.js
+│
+└── style/
+    ├── auth.css
+    ├── global.css
+    ├── layout.css
+    ├── movie.css
+    ├── person.css
+    ├── profile.css
+    │
+    └── components/
+        ├── buttons.css
+        ├── card.css
+        ├── navbar.css
+        └── rating.css

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile • ByteSizedDB</title>
+    <link rel="stylesheet" href="../style/global.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-section">
+            <a href="../index.html" style="text-decoration:none; color:inherit;">
+                <h1>ByteSized<span>DB</span></h1>
+            </a>
+        </div>
+
+        <div class="search-section">
+            <div id="search-bar-wrapper"></div>
+        </div>
+
+        <div class="controls-section">
+            <div class="auth-btns">
+                <button id="logout-btn" class="btn btn-login">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="page profile-page">
+        <section class="profile-header">
+            <div class="profile-avatar">
+                <div id="profile-initials" class="person-initials">U</div>
+            </div>
+            <div class="profile-meta">
+                <h1 id="profile-username" class="person-name">Username</h1>
+                <div id="profile-email" class="person-years">user@example.com</div>
+            </div>
+        </section>
+
+        <section class="movie-section">
+            <h2>My Ratings</h2>
+            <div id="profile-ratings" class="grid-container">
+                <!-- User Ratings -->
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="../script/pages/profile.js"></script>
+</body>
+</html>
