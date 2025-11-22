@@ -20,3 +20,8 @@ export function goTo(target) {
 export function goBack() {
     window.history.back();
 }
+
+export function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
