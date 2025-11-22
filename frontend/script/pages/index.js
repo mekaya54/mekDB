@@ -5,7 +5,14 @@ import { apiGetHome, apiSearchMovies } from "../api/movies.api.js";
 import { $ } from "../utils/dom.js";
 
 initNavbar({
-    onSearch: () => loadSearch() 
+    onSearch: (q) => {
+        const url = new URL(window.location);
+        if(q) url.searchParams.set("search", q);
+        else url.searchParams.delete("search");
+        window.history.pushState({}, "", url);
+        
+        loadSearch();
+    }
 });
 
 

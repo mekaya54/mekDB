@@ -11,11 +11,9 @@ export function initNavbar(options = {}) {
             <div class="navbar-left logo-section">
                 <span id="navbar-logo" class="logo-text">ByteSized<span>DB</span></span>
             </div>
-
             <div class="navbar-center">
                 <div id="search-bar-wrapper"></div>
             </div>
-
             <div class="navbar-right auth-btns"></div>
         </div>
     `;
@@ -27,8 +25,7 @@ export function initNavbar(options = {}) {
     }
 
     const defaultSearchBehavior = (query) => {
-        if (!query) return;
-        goTo(`index.html?search=${encodeURIComponent(query)}`);
+        goTo(`index.html?search=${encodeURIComponent(query || "")}`);
     };
 
     initSearchBar({
