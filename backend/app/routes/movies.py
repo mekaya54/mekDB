@@ -1,9 +1,9 @@
 from flask import Blueprint, request, jsonify
-from backend.app.services.movie_service import search_movies, get_movie_by_id, get_top_by_groups
+from backend.app.utils.db_fetch import search_movies_db, fetch_home_movies, fetch_movie_detail_db
 from backend.app.config.settings import DEFAULT_LIMIT
 
+# Blueprint definition
 bp = Blueprint("movies", __name__, url_prefix="/api")
-
 
 @bp.route("/movies", methods=["GET"])
 def api_search_movies():
@@ -11,22 +11,31 @@ def api_search_movies():
     t = request.args.get("type", "all")
     try:
         limit = int(request.args.get("limit", DEFAULT_LIMIT))
-    except Exception:
+        page = int(request.args.get("page", 1))
+    except ValueError:
         limit = DEFAULT_LIMIT
-
-    movies = search_movies(q, t, limit)
-    return jsonify(movies)
-
+        page = 1
+    
+    offset = (page - 1) * limit
+    
+    movies, total_count = search_movies_db(q, t, limit, offset)
+    
+    return jsonify({
+        "results": movies,
+        "page": page,
+        "total_results": total_count, # Simple count for now
+        "total_pages": 1 # Pagination logic can be improved
+    })
 
 @bp.route("/movies/home", methods=["GET"])
 def api_home_movies():
-    top = get_top_by_groups(limit=10)
-    return jsonify(top)
-
+    # Fetch grouped data for home
+    data = fetch_home_movies(limit=12)
+    return jsonify(data)
 
 @bp.route("/movies/<production_id>", methods=["GET"])
 def api_movie_detail(production_id):
-    movie = get_movie_by_id(production_id)
+    movie = fetch_movie_detail_db(production_id)
     if movie is None:
-        return jsonify({}), 404
+        return jsonify({"error": "Movie not found"}), 404
     return jsonify(movie)

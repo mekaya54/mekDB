@@ -2,31 +2,31 @@
 Application settings and configuration helpers.
 
 This module centralizes configuration values used across the backend
-modules. Values are loaded from environment variables where appropriate.
+modules. Values are loaded exclusively from environment variables.
 """
-from os import getenv
+import os
+from dotenv import load_dotenv
 
-# Database defaults (can be overridden by environment variables)
-DB_HOST = getenv("DB_HOST", "localhost")
-DB_NAME = getenv("DB_NAME", "imdb_project")
-DB_USER = getenv("DB_USER", "root")
-DB_PASS = getenv("DB_PASS", "")
+load_dotenv()
 
-# API settings
-DEFAULT_LIMIT = int(getenv("DEFAULT_LIMIT", "50"))
+DB_HOST = os.getenv("DB_HOST")
+DB_NAME = os.getenv("DB_NAME")
+DB_USER = os.getenv("DB_USER")
+DB_PASS = os.getenv("DB_PASS")
 
-# Export a small helper for converting incoming type filters to groups
+DEFAULT_LIMIT = int(os.getenv("DEFAULT_LIMIT", "50"))
+
 TYPE_GROUPS = {
-	"movie": ["movie", "tvMovie"],
-	"tvseries": ["tvSeries", "tvMiniSeries"],
-	"tvepisode": ["tvEpisode"],
+    "movie": ["movie", "tvMovie"],
+    "tvseries": ["tvSeries", "tvMiniSeries"],
+    "tvepisode": ["tvEpisode"],
 }
 
 __all__ = [
-	"DB_HOST",
-	"DB_NAME",
-	"DB_USER",
-	"DB_PASS",
-	"DEFAULT_LIMIT",
-	"TYPE_GROUPS",
+    "DB_HOST",
+    "DB_NAME",
+    "DB_USER",
+    "DB_PASS",
+    "DEFAULT_LIMIT",
+    "TYPE_GROUPS",
 ]
