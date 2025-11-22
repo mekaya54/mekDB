@@ -1,30 +1,20 @@
-import { initNavbar } from "../components/navbar.js";
-import { initSearchBar } from "../components/searchbar.js";
+import { initNavbar } from "../components/navbar.js"; // Navbar'ı import et
 import { createMovieCard } from "../components/movieCard.js";
 import { createPagination } from "../components/pagination.js";
 import { apiGetHome, apiSearchMovies } from "../api/movies.api.js";
 import { $ } from "../utils/dom.js";
 
-initNavbar();
-
-initSearchBar({
-    wrapperId: "search-bar",
-    placeholder: "Search titles",
-    onSearch: () => loadSearch()
+initNavbar({
+    onSearch: () => loadSearch() 
 });
+
 
 let currentFilter = "all";
 let currentPage = 1;
 let totalPages = 1;
 
-function formatRuntime(minutes) {
-    if (!minutes) return "N/A";
-    const h = Math.floor(minutes / 60);
-    const m = minutes % 60;
-    return `${h}h ${m}m`;
-}
-
 function renderMovies(list) {
+
     const container = $("#movie-container");
     container.innerHTML = "";
 
@@ -50,7 +40,7 @@ async function loadSearch() {
 
     renderMovies(data.results || []);
     totalPages = data.total_pages || 1;
-
+    
     createPagination({
         containerId: "pagination-wrapper",
         currentPage,
@@ -63,5 +53,16 @@ async function loadSearch() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadHome();
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search');
+
+    if (searchParam) {
+        setTimeout(() => {
+            const input = $("#search-input");
+            if(input) input.value = searchParam;
+            loadSearch();
+        }, 100); 
+    } else {
+        loadHome();
+    }
 });

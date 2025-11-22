@@ -1,9 +1,9 @@
-import { initApp } from "../app.js";
+import { initNavbar } from "../navbar.js";
 import { signup } from "../api/auth.api.js";
 import { goTo } from "../utils/router.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    initApp();
+    initNavbar();
 
     const form = document.getElementById("signup-form");
     const usernameInput = document.getElementById("signup-username");

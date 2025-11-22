@@ -1,4 +1,4 @@
-import { initApp } from "../app.js";
+import { initNavbar } from "../navbar.js";
 import { fetchProfile } from "../api/auth.api.js";
 import { fetchMyRatings } from "../api/profile.api.js";
 import { createMovieCard } from "../components/movieCard.js";
@@ -6,7 +6,7 @@ import { getToken } from "../utils/storage.js";
 import { goTo } from "../utils/router.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-    initApp();
+    initNavbar();
 
     const token = getToken();
     if (!token) {

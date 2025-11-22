@@ -2,13 +2,12 @@ import { initSearchBar } from "../components/searchbar.js";
 import { initAuthButtons } from "../components/authButtons.js";
 import { goTo } from "../utils/router.js";
 
-export function initNavbar() {
+export function initNavbar(options = {}) {
     const header = document.querySelector("header");
     if (!header) return;
 
     header.innerHTML = `
         <div class="navbar-inner">
-
             <div class="navbar-left logo-section">
                 <span id="navbar-logo" class="logo-text">ByteSized<span>DB</span></span>
             </div>
@@ -27,14 +26,15 @@ export function initNavbar() {
         logo.addEventListener("click", () => goTo("index.html"));
     }
 
+    const defaultSearchBehavior = (query) => {
+        if (!query) return;
+        goTo(`index.html?search=${encodeURIComponent(query)}`);
+    };
+
     initSearchBar({
         wrapperId: "search-bar-wrapper",
         placeholder: "Search titles",
-        onSearch: () => {
-            const input = document.getElementById("search-input");
-            const q = input ? input.value.trim() : "";
-            goTo(`index.html?search=${encodeURIComponent(q)}`);
-        }
+        onSearch: options.onSearch || defaultSearchBehavior
     });
 
     initAuthButtons();

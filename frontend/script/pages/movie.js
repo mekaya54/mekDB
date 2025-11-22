@@ -1,20 +1,9 @@
-import { initApp } from "../app.js";
-import { initSearchBar } from "../components/searchbar.js";
+import { initNavbar } from "../components/navbar.js";
 import { getQueryParam } from "../utils/router.js";
 import { fetchMovieDetails, rateMovie } from "../api/movies.api.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-    initApp();
-
-    initSearchBar({
-        placeholder: "Search titles",
-        onSearch: () => {
-            const input = document.getElementById("search-input");
-            const q = input ? input.value.trim() : "";
-            if (!q) return;
-            window.location.href = `index.html?search=${encodeURIComponent(q)}`;
-        }
-    });
+    initNavbar();
 
     const id = getQueryParam("id");
     if (!id) return;
