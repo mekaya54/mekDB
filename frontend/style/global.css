@@ -31,6 +31,12 @@ body {
     color: var(--text-main);
     margin: 0;
     padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.page {
+    padding-bottom: 60px;
 }
 
 .filter-bar {
@@ -79,28 +85,177 @@ body {
     margin: 0 auto;
 }
 
-.grid-container.top-layout {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+.movie-hero {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 40px;
     align-items: flex-start;
 }
 
-.top-column {
+.movie-hero-left {
+    flex: 0 0 300px;
+}
+
+.movie-poster-lg {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.movie-hero-right {
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.top-column-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin: 0 0 8px 0;
-    color: var(--text-main);
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 6px;
+.movie-detail-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.1;
 }
 
-.column-cards {
+.movie-submeta {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.movie-genres {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.user-rating-box {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 15px 20px;
+    border-radius: 8px;
+    width: fit-content;
+    margin: 10px 0;
+}
+
+.user-rating-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.user-rating-hint {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    color: var(--accent-color);
+    height: 20px; 
+}
+
+.movie-overview {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ddd;
+    max-width: 800px;
+}
+
+.movie-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 40px;
+}
+
+.movie-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+    border-left: 4px solid var(--accent-color);
+    padding-left: 15px;
+}
+
+.person-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.person-item {
+    background: #1f1f1f;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.person-item:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.person-header, .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 40px;
+}
+
+.person-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #252525;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--text-muted);
+    border: 2px solid var(--border-color);
+}
+
+.person-meta {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 5px;
+}
+
+.person-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.person-years {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.person-professions {
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.filmography-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filmography-row {
+    padding: 12px 15px;
+    background: #1a1a1a;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filmography-row:hover {
+    background: #222;
+    border-color: #444;
 }

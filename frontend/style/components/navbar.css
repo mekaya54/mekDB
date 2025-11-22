@@ -6,26 +6,27 @@ header {
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
     height: 72px;
-    display: flex;
-    align-items: center;
-    padding: 0;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .navbar-inner {
-    width: 100%;
-    max-width: 1400px;
-    padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 40px;
     height: 100%;
+    box-sizing: border-box;
 }
 
 .navbar-left {
     flex: 0 0 auto;
     display: flex;
     align-items: center;
+    min-width: 150px;
 }
 
 .logo-text {
@@ -35,32 +36,34 @@ header {
     letter-spacing: -0.5px;
     cursor: pointer;
     text-decoration: none;
-    display: flex;
-    align-items: center;
+    white-space: nowrap;
 }
+
 .logo-text span {
     color: var(--accent-color);
     margin-left: 2px;
 }
 
 .navbar-center {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 40px;
+    padding: 0 20px;
 }
 
 #search-bar-wrapper {
     width: 100%;
-    max-width: 500px;
+    max-width: 480px;
 }
 
 .navbar-right {
     flex: 0 0 auto;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 15px;
+    min-width: 150px;
 }
 
 .navbar-right .btn {
@@ -69,21 +72,22 @@ header {
     justify-content: center;
     height: 40px;
     padding: 0 20px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
+    white-space: nowrap;
 }
 
 .navbar-right .btn-login {
     background: transparent;
-    border: none;
+    border: 1px solid transparent;
     color: #ffffff;
     font-weight: 600;
 }
 
 .navbar-right .btn-login:hover {
-    color: var(--accent-color);
+    border-color: #444;
     background: rgba(255, 255, 255, 0.05);
 }
 
