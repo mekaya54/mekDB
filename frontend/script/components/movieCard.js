@@ -52,7 +52,7 @@ export function createMovieCard(movie) {
 
     card.addEventListener("click", () => {
         if (movie.production_id) {
-            goTo(`pages/movie.html?id=${encodeURIComponent(movie.production_id)}`);
+            goTo(`movie.html?id=${encodeURIComponent(movie.production_id)}`);
         }
     });
 
